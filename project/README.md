@@ -46,8 +46,8 @@ screen name by inserting ```<input>``` and ```<button>```inside the user div, li
 
 ```html
 <div id="user">
-     <input type="text">
-     <button>Set name</button>
+    <input type="text">
+    <button>Set name</button>
 </div>
 ```
 
@@ -60,7 +60,7 @@ attribute to a button, like so:
 
 ```html
 <div id="user">
-     <button id="John">Call myself John</button>
+    <button id="John">Call myself John</button>
 </div>
 ```
 
@@ -69,20 +69,138 @@ in groups instead of individuals, this could be handy.
 
 ### Exercise
 
-* Style the **#user** element so the **#user** div will disappear after a name is set as to prevent
+* Style the **#user** element so the **#user** div will disappear after a name is set to prevent
 users from changing their name.
 
 ##rooms
 
-##messages
+This div is used to allow users to select which room that want to be a part of.  A user can
+belong to only one room at a time, and all messages are erased when switching rooms.  Rooms are created
+automatically when a user joins it.  When users first connect, they do not belong to any rooms.
+You can set a default room by adding the _join_ attribute to the #rooms div:
 
-##num
+```html
+<div id="rooms" join="hallway">
+</div>
+```
 
-##current-room
+The above code will have all users join the _hallway_ room by default.  The _join_ attribute of the 
+**#room** element will be updated in the web inspector when a user joins a room.
 
-##members
+Similar to the user name, a user can also pick their own room to join.  See if the following code make sense
+to you:
+
+```html
+<div id="rooms" join="system">
+    <input type="text">
+    <button>Join room</button>
+    <button join="red">Join the red room</button>
+    <button join="blue">Join the blue room</button>
+    <button join="green">Join the green room</button>
+</div>
+```
+
+### Exercise
+
+* Style the **#rooms** element above so that when a user joins the above pre-determined rooms, 
+the background color of the **#rooms** div will be changed to match the name of the current room.
 
 ##input
 
+Now that we can set our user name and room, we need to be able to send messages.  Messages
+can be sent by adding a **#input** div and providing a text input box and a button element.
+Just like the **#user** and **#rooms** elements, you can include a _send_ attribute
+to any button inside the **#input** element to send pre-defined messages.  All messages are
+sent to the current room.
+
+```html
+<div id="input">
+    <input type="text">
+    <button>send</button>
+    <button send="Hello!">Hello</button>
+    <button send="<img src='https://cdn.meme.am/cache/images/folder688/100x100/84688.jpg'>">Suspicious Fry</button>
+</div>
+``` 
+
+### Exercise
+
+* Include the font awesome stylesheet [https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css]
+(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css) in your HTML, then create
+3 buttons to send 3 different icons to the current chat room.  Make sure that the button description matches
+the icon being sent.
+
+##messages
+
+When a user sends a message to a room, all users in that room will receive that message.  The messages will 
+be inserted inside the **#messages** div.  When you first define your HTML, include an empty **#messages** 
+div as follows:
+
+```
+<div id="messages"></div>
+```
+
+Then, using the web inspector while your page is running, you will noticed a series of divs being
+insert inside the **#messages** element.  Each div represents an individual message and has 
+the following structure:
+
+```
+<div>
+    <span>from user</span>
+    <span>The content of the message</span>
+    <time datetime="2017-02-15T19:21:20.848Z">10 hours ago</time>
+</div>
+```
+
+If a message is sent by the current user, the above div will contain the class _self_.  When a message 
+first arrive, the above div will also contain the class _latest-message_, which will be removed after 
+a number of seconds specified by the _latest-message-duration_ attribute of the **#chat** element.
+
+The number of messages to keep on screen is determined by the _messages-to-keep_ attribute inside the **#chat** 
+element.
+
+###Exercise
+
+* Style the messages so that each of the 3 fields of the message will separated by some space, 
+and put some vertical margin/padding between the messages.
+* Style the messages sent by you to be different visually than messages sent by other people.
+* Have the new message be styled differently than the old messages.
+* **(Challenging)** Style the messages so that each of the 3 fields will have different colors/background color.
+
+##num
+
+Reports the number of users in the current room.  The class _multiple_ is added when there are more
+than one user in a room.  Use the web inspector to observe how it changes.
+
+###Exercise
+
+* When a room has more than one person, style the **#num** element with a different background color.
+
+##current-room
+
+Reports the current room a user is in.
+
+##members
+
+For every user in the current room, a div is added to this element.  For instance, if 
+the current room has 3 users: Mary, John, and Paul, the #members div will look like the 
+following:
+
+```
+<div id="members">
+    <div>Mary</div>
+    <div class="self">John</div>
+    <div>Paul</div>
+</div>
+```
+
+You will noticed that one of the member contains the class _self_.  This indicates that
+the current user of this connection.
+
+###Exercise
+
+* Style the current user in bold.
+
 ##error
 
+If a server error occurs, the message will be added to this div.  Best to keep it hidden by styling it
+with ```display: none```.
