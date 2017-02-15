@@ -100,7 +100,7 @@ to you:
 </div>
 ```
 
-### Exercise
+###Exercise
 
 * Style the **#rooms** element above so that when a user joins the above pre-determined rooms, 
 the background color of the **#rooms** div will be changed to match the name of the current room.
@@ -157,6 +157,9 @@ a number of seconds specified by the _latest-message-duration_ attribute of the 
 
 The number of messages to keep on screen is determined by the _messages-to-keep_ attribute inside the **#chat** 
 element.
+
+**Note on testing** If you join the _system_ room, automated messages will be sent to this room every few 
+seconds. This will greatly help when you are testing your page.
 
 ###Exercise
 

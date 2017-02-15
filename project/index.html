@@ -7,22 +7,22 @@
     </head>
     <body>
 
-        <div id="chat" messages-to-keep=10 latest-message-duration=0.1 timeago-update-interval=60>
+        <div id="chat" messages-to-keep=10 latest-message-duration=1 timeago-update-interval=60>
             
             <div id="user">
                 <input type="text">
                 <button>Set name</button>
-                <button name="Jason">Call myself Jason</button>
-                <button name="Abby">Call myself Abby</button>
+                <button name="Jason">Set name to Jason</button>
+                <button name="Abby">Set name to Abby</button>
             </div>
 
 
             <div id="rooms" join="system">
                 <input type="text">
                 <button>Join room</button>
-                <button join="room one">room one</button>
-                <button join="room two">room two</button>
-                <button join="room three">room three</button>
+                <button join="red">Join red room</button>
+                <button join="blue">Join blue room</button>
+                <button join="green">Join green room</button>
             </div>
             
             <div id="num"></div>
@@ -33,8 +33,9 @@
                 <input type="text">
                 <button>send</button>
                 <button send="Hello!">Hello</button>
-                <button send="<img src='http://i.imgur.com/ViQ2WEDb.jpg'>">Random Pic</button>
-                <button send="<img src='https://cdn.meme.am/cache/images/folder688/100x100/84688.jpg'>">Suspicious Fry</button>                
+                <button send="<img src='https://cdn.meme.am/cache/images/folder688/100x100/84688.jpg'>">
+                    Suspicious Fry
+                </button>                
             </div>
 
             <div id="messages"></div>
