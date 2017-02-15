@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script src="http://operatoroverload.com/api/timeago.min.js"></script>
+        <script src="http://operatoroverload.com/api/chat.js"></script>
+    </head>
+    <body>
+
+        <div id="chat" messages-to-keep=10 latest-message-duration=0.1 timeago-update-interval=60>
+            
+            <div id="user">
+                <input type="text">
+                <button>Set name</button>
+                <button name="Jason">Call myself Jason</button>
+                <button name="Abby">Call myself Abby</button>
+            </div>
+
+
+            <div id="rooms" join="system">
+                <input type="text">
+                <button>Join room</button>
+                <button join="room one">room one</button>
+                <button join="room two">room two</button>
+                <button join="room three">room three</button>
+            </div>
+            
+            <div id="num"></div>
+            <div id="current-room"></div>                    
+            <div id="members"></div>
+            
+            <div id="input">
+                <input type="text">
+                <button>send</button>
+                <button send="Hello!">Hello</button>
+                <button send="<img src='http://i.imgur.com/ViQ2WEDb.jpg'>">Random Pic</button>
+            </div>
+
+            <div id="messages"></div>
+
+            <div id="error"></div>
+        </div>
+    </body>
+</html> 
