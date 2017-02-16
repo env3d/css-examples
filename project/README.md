@@ -30,8 +30,7 @@ The system will display the time as "xxx ago" where xxx can be seconds, minutes,
 attribute controls how often this text is updated.
 
 Inside the #chat div, the HTML code must contain the following div's with specific id's.  Look
-at (https://github.com/env3d/css-examples/blob/master/project/index.html)
-[https://github.com/env3d/css-examples/blob/master/project/index.html] for a complete example of the
+at https://github.com/env3d/css-examples/blob/master/project/index.html for a complete example of the
 HTML structure.
 
 ##user
