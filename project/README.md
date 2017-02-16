@@ -12,7 +12,7 @@ app "Water Cooler Chat" -- just a casual conversation.
 
 The chat app UI is described using HTML, and has several parameters
 that can be tuned by designers.  To start, the entire chat application
-must be encolsed inside a <div> with an id "chat", and can contain
+must be encolsed inside a ```<div>``` with an id "chat", and can contain
 up to 3 attributes, like so:
 
 ```html
@@ -29,7 +29,10 @@ class will stay with the element before being removed.
 The system will display the time as "xxx ago" where xxx can be seconds, minutes, or hours.  This
 attribute controls how often this text is updated.
 
-Inside the #chat div, the HTML code must contain the following div's with specific id's:
+Inside the #chat div, the HTML code must contain the following div's with specific id's.  Look
+at (https://github.com/env3d/css-examples/blob/master/project/index.html)
+[https://github.com/env3d/css-examples/blob/master/project/index.html] for a complete example of the
+HTML structure.
 
 ##user
 
