@@ -216,8 +216,3 @@ the current user of this connection.
 <ol start=9>
 <li>Style the current user in bold.</li>
 </ol>
-
-##error
-
-If a server error occurs, the message will be added to this div.  Best to keep it hidden by styling it
-with ```display: none```.
