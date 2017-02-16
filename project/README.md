@@ -131,7 +131,7 @@ sent to the current room.
 <li>Include the font awesome stylesheet [https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css]
 (https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css) in your HTML, then create
 3 buttons to send 3 different icons to the current chat room.  Make sure that the button description matches
-the icon being sent.<li>
+the icon being sent.</li>
 </ol>
 
 ##messages
@@ -185,7 +185,7 @@ than one user in a room.  Use the web inspector to observe how it changes.
 ###Exercise
 
 <ol start=8>
-<li>When a room has more than one person, style the **#num** element with a different background color.</li>
+<li>When a room has more than one person, style the #num element with a different background color.</li>
 </ol>
 
 ##current-room
