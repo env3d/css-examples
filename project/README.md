@@ -68,9 +68,10 @@ Why is this useful?  Imagine if you want a special app where users can only iden
 in groups instead of individuals, this could be handy.  
 
 ### Exercise
-
-1. Style the **#user** element so the **#user** div will disappear after a name is set to prevent
-users from changing their name.
+<ol start=1>
+<li>Style the #user element so the #user div will disappear after a name is set to prevent
+    users from changing their name.</li>
+</ol>
 
 ##rooms
 
@@ -102,9 +103,10 @@ to you:
 
 ###Exercise
 
-{:start="2"}
-2. Style the **#rooms** element above so that when a user joins the above pre-determined rooms, 
-the background color of the **#rooms** div will be changed to match the name of the current room.
+<ol start=2>
+<li>Style the #rooms element above so that when a user joins the above pre-determined rooms, 
+the background color of the #rooms div will be changed to match the name of the current room.</li>
+</ol>
 
 ##input
 
@@ -125,11 +127,12 @@ sent to the current room.
 
 ### Exercise
 
-{:start="3"}
-3. Include the font awesome stylesheet [https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css]
+<ol start=3>
+<li>Include the font awesome stylesheet [https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css]
 (https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css) in your HTML, then create
 3 buttons to send 3 different icons to the current chat room.  Make sure that the button description matches
-the icon being sent.
+the icon being sent.<li>
+</ol>
 
 ##messages
 
@@ -165,12 +168,14 @@ seconds. This will greatly help when you are testing your page.
 
 ###Exercise
 
-{:start="4"}
-4. Style the messages so that each of the 3 fields of the message will separated by some space, 
-and put some vertical margin/padding between the messages.
-5. Style the messages sent by you to be different visually than messages sent by other people.
-6. Have the new message be styled differently than the old messages.
-7. **(Challenging)** Style the messages so that each of the 3 fields will have different colors/background color.
+<ol start=4>
+<li>Style the messages so that each of the 3 fields of the message will separated by some space, 
+and put some vertical margin/padding between the messages.</li>
+<li>Style the messages sent by you to be different visually than messages sent by other people.</li>
+<li>Have the new message be styled differently than the old messages.</li>
+<li>**(Challenging)** Style the messages so that each of the 3 fields will have different 
+colors/background color.</li>
+</ol>
 
 ##num
 
@@ -179,8 +184,9 @@ than one user in a room.  Use the web inspector to observe how it changes.
 
 ###Exercise
 
-{:start="8"}
-8. When a room has more than one person, style the **#num** element with a different background color.
+<ol start=8>
+<li>When a room has more than one person, style the **#num** element with a different background color.</li>
+</ol>
 
 ##current-room
 
@@ -205,8 +211,9 @@ the current user of this connection.
 
 ###Exercise
 
-{:start="9"}
-9. Style the current user in bold.
+<ol start=9>
+<li>Style the current user in bold.</li>
+</ol>
 
 ##error
 
