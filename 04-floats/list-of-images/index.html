@@ -5,31 +5,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        
+        <!-- including this script will populate random images into #imgur -->
         <script src="imgur.js"></script>
 
         <style>
 
-         
+         /*
          #album {
-             //border-style: solid;
-             //overflow: auto;
-             //width: 680px;
-             //margin: auto;
-             //margin-left: 300px;
+             border-style: solid;
+             overflow: auto;
+             width: 680px;
+             margin: auto;
+             margin-left: 300px;
          }
          
          #album > div {
              overflow: auto;
-             //border-style: solid;
-             //clear: left;
+             border-style: solid;
+             clear: left;
          }
          
          #album span {
              display: block;
              margin-top: 50px;
              text-align: left;
-             //float: left;
+             float: left;
          }
          
          #album img {
@@ -40,7 +41,8 @@
              border-radius: 5px;
              float: left;
          }
-
+         */
+         
          /*
          #album img:nth-child(5n+1) {
              clear: left;             
@@ -51,6 +53,17 @@
     </head>    
     <body>
 
+        <!--
+             #album will be filled with images from imgur during rendering
+             you can control how many images to fetch and the size of the images
+             using a couple of attributes:
+
+             num-images (optional) - specifies how many images to fetch
+             image-size - 's' for small (90x90), 'b' for big (160x160)
+                          defaults to 's'
+           -->
+        
         <div id="album"></div>
+        
     </body>
 </html>
