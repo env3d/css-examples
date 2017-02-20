@@ -47,7 +47,7 @@ window.addEventListener('load', function() {
                 var imgNode = document.createElement("img");
                 imgNode.src = img.link.substr(0, img.link.lastIndexOf('.'))
                             + imageSize + img.link.substr(img.link.lastIndexOf('.'));                
-                var textNode = document.createElement("span");
+                var textNode = document.createElement("p");
                 textNode.innerHTML = img.title;
                 
                 imgDiv.appendChild(imgNode);
