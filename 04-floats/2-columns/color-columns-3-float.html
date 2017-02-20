@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+
+         /** Can you make the columns to have different colors? */
+         
+         * {
+             box-sizing: border-box;
+         }
+
+         header {
+             height: 90px;
+             margin: auto;
+             font-size: 40px;
+             background-color: red;
+         }
+         
+         #wrap { width: 80%; margin: 60px auto; }        
+         
+         #container {
+             width: 90%;
+             border-style: solid;             
+             margin: 0 0 50px 0;
+             overflow: hidden;
+         }
+
+         nav, aside, main {
+             /* border-style: solid; */
+             float: left;
+             padding-bottom: 9999px;
+             margin-bottom: -9999px;
+         }
+         
+         nav {
+             background-color: green;
+             width: 10%;
+         }
+
+         aside {
+             background-color: blue;
+             width: 10%;
+             margin-left: 80%;
+         }
+         
+         main {
+             margin-left: -90%;
+             width: 80%;
+             padding-left: 5px;
+             padding-right: 5px;
+             background-color: #a0a0a0;
+         }
+
+         main > article {
+             margin: 10px 10px 10px 5px;
+             padding: 10px 100px 10px;
+             background-color: #f0f0f0;
+             border-radius: 20px;
+         }
+
+         main > article > p {
+             line-height: 2;
+         }
+
+         body {
+             padding: 0;
+             margin: 0;
+         }
+         
+        </style>
+    </head>
+    <body>                
+            
+        <header>Nice website title</header>
+        <div id="wrap">
+            <div id="container">
+                <nav>
+                    <ul>
+                        <li><a href="#article1">article 1</a></li>
+                        <li><a href="#article2">article 2</a></li>
+                        <li><a href="#article3">article 3</a></li>                
+                    </ul>
+                </nav>        
+                
+                <aside>
+                    <strong>This is an example of the "aside" content</strong>
+                    <p>
+                        Etiam tortor lorem, semper ut massa sit amet, commodo pellentesque arcu. Etiam cursus
+                        massa quis massa bibendum, eget lobortis neque mollis. Aliquam porta lorem feugiat erat
+                        dignissim, eu accumsan massa vulputate. Donec vehicula, lectus nec suscipit sagittis,
+                        nisl ligula scelerisque lectus, eget feugiat ante elit vel nisi. Sed pellentesque at enim
+                        nec tincidunt. Sed non porttitor turpis. Duis faucibus at tellus in ullamcorper.
+                    </p>
+                </aside>
+                
+                <main>            
+                    <article id="article1">
+                        <h1>This is the 1st article</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt convallis pretium.
+                            Quisque eros enim, tincidunt eget pellentesque vel, viverra quis ligula. Aliquam erat volutpat.
+                            Suspendisse nisi risus, bibendum tincidunt diam sit amet, semper sagittis odio.
+                            Suspendisse nec feugiat arcu. Nullam efficitur, lorem nec tempus laoreet,
+                            dui velit facilisis ipsum, vitae congue nunc tellus in nisi. Fusce vehicula
+                            convallis turpis ut dictum. Aenean ultricies sem in nisi maximus, ut pretium enim rhoncus.
+                        </p>
+                    </article>
+
+                    <article id="article2">
+                        <h1>This is the 2nd article</h1>
+                        <p>
+                            Aliquam blandit placerat tortor nec semper. Sed porttitor non nisl et porta.
+                            Morbi dapibus metus ipsum, nec interdum arcu aliquet ac. In gravida odio sit
+                            amet enim volutpat, ut cursus ante lobortis. Nulla vel sapien feugiat, placerat
+                            elit eu, venenatis lectus. Vivamus imperdiet sem a sagittis accumsan. Mauris
+                            suscipit elit in mollis pretium. Vivamus id faucibus mauris. Lorem ipsum dolor sit
+                            amet, consectetur adipiscing elit. Curabitur a nunc at velit consequat rhoncus
+                            sed eu est. Integer ullamcorper dapibus lectus, vel mattis erat suscipit et.
+                            Praesent semper nulla ac dapibus feugiat.
+                        </p>
+                    </article>
+
+                    
+                    <article id="article3">
+                        <h1>This is the 3rd article</h1>
+                        <p>                    
+                            Aliquam quis tortor dapibus, efficitur magna et, ultricies nulla. Duis pellentesque sit
+                            amet turpis in ullamcorper. Fusce orci neque, hendrerit vel urna ut, vestibulum faucibus
+                            turpis. Fusce libero felis, dictum ac metus sed, egestas fermentum justo. Praesent ac quam in
+                            neque viverra vulputate. Phasellus hendrerit justo purus, et interdum massa ornare nec. Etiam
+                            tempus, eros at efficitur cursus, tellus orci ullamcorper lacus, eget efficitur eros justo nec
+                            leo. Duis lacus ligula, rhoncus sed ante ut, ullamcorper venenatis magna. Aliquam fringilla,
+                            diam sed pharetra auctor, lacus dui convallis felis, nec rutrum leo tellus vitae nunc. Quisque
+                            egestas libero in molestie cursus. Etiam sed maximus metus. Praesent in est lorem. Sed sem
+                            erat, convallis sed sollicitudin in, accumsan non odio. Vivamus viverra ac nulla nec
+                            pellentesque. Donec pulvinar turpis ut turpis pellentesque sagittis. Cras quis dui eu
+                            velit volutpat tincidunt.
+                        </p>
+                    </article>
+                    
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
