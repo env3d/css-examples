@@ -10,44 +10,19 @@
         <script src="imgur.js"></script>
 
         <style>
-
-         /*
-         #album {
-             border-style: solid;
-             overflow: auto;
-             width: 680px;
-             margin: auto;
-             margin-left: 300px;
-         }
+         /**
+            first, use developer tools to inspect the items being inserted
+            then, experiment with styling using float, flexbox, etc.
+          */
          
          #album > div {
-             overflow: auto;
-             border-style: solid;
-             clear: left;
-         }
-         
-         #album span {
-             display: block;
-             margin-top: 50px;
-             text-align: left;
              float: left;
          }
          
-         #album img {
-             padding: 10px;
-             margin: 10px;
-             box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.5);
-             border-style: solid;
-             border-radius: 5px;
-             float: left;
+         #album > div > span {
+             display: none;
          }
-         */
          
-         /*
-         #album img:nth-child(5n+1) {
-             clear: left;             
-         }
-         */
         </style>
         
     </head>    
@@ -59,11 +34,21 @@
              using a couple of attributes:
 
              num-images (optional) - specifies how many images to fetch
-             image-size - 's' for small (90x90), 'b' for big (160x160)
-                          defaults to 's'
+             image-size - can be any of the following:
+             
+             's' for small square (90x90)
+             'b' for big square (160x160)
+             
+             (thumbnails preserves the aspect ratio of the original image)
+             't' for small thumbnail (160)
+             'm' for medium thumbnail (320)
+             'l' for large thumbnail (640)
+             'h' for huge thumbnail (1024)
+             
+                defaults to 's'
            -->
         
-        <div id="album"></div>
+        <div id="album"  image-size='m'></div>
         
     </body>
 </html>

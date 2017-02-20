@@ -51,9 +51,10 @@ window.addEventListener('load', function() {
                 textNode.innerHTML = img.title;
                 
                 imgDiv.appendChild(imgNode);
-                imgDiv.appendChild(textNode);
-                
+                imgDiv.appendChild(textNode);                
                 $("#album").append(imgDiv);
+                //$("#album").append(imgNode);
+                //$("#album").append(textNode);
                     
             });
         }
