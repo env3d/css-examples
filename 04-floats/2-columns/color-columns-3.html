@@ -1,31 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE htmlA>
 <html>
     <head>
         <style type="text/css">
 
-         /** Can you make the columns to have different colors? */
+         /**
+            In this example, we floated all 3 sections side-by-side
+            to create the illusion that we have 3 columns. We also use a
+            trick to make them look equal in height
+         */
+         
          
          * {
              box-sizing: border-box;
          }
 
-         body {
-             background-color: green;
-         }
-         
-         nav {
-             float: left;
-             width: 200px;
-             overflow: hidden;
-         }
-
-         aside {
-             display: block;
-             float: right;
-             width: 200px;
-             padding: 50px;
-         }
-         
          header {
              height: 90px;
              margin: auto;
@@ -33,23 +21,48 @@
              background-color: red;
          }
 
-         main {
-             margin: 0px 200px 0 200px;
-             padding: 5px 50px 5px;
-             background-color: #a0a0a0;
+         div {
+             overflow: hidden;
+         }
+         
+         nav, aside, main {
+             padding-bottom: 9999px;
+             margin-bottom: -9999px;
+         }
+         
+         nav {
+             background-color: #707070;
+             float: left;
+             width: 20%;
+             overflow: hidden;
          }
 
+         aside {
+             background-color: #a0a0a0;
+             display: block;
+             float: left;
+             width: 20%;
+         }
+         
+         main {
+             float: left;
+             width: 60%;
+             background-color: #e0e0e0;
+         }
+
+         
          main > article {
              margin: 10px 10px 10px 5px;
              padding: 10px 100px 10px;
              background-color: #f0f0f0;
              border-radius: 20px;
+             margin: 10px;             
          }
 
          main > article > p {
-             line-height: 2;
+             line-height: 2em;
          }
-
+         
          body {
              padding: 0;
              margin: 0;
@@ -61,6 +74,7 @@
         
         <header>Nice website title</header>
 
+        <div>
         <nav>
             <ul>
                 <li><a href="#article1">article 1</a></li>
@@ -126,6 +140,6 @@
             </article>
             
         </main>
-        
+        </div>
     </body>
 </html>
