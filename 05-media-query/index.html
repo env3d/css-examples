@@ -1,0 +1,78 @@
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        <!-- including this script will populate random images into #imgur -->
+        <script src="http://css.operatoroverload.com/04-floats/list-of-images/imgur.js"></script>
+
+        <style>
+         /**
+            first, use developer tools to inspect the items being inserted
+            then, experiment with styling using float, flexbox, etc.
+          */
+
+         
+         #album {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-around;
+             width: 600px;
+             margin: auto;
+         }
+
+         #album > div > p {
+             display: none;
+         }
+
+         @media screen and (max-width: 600px) {
+             #album {
+                 width: 400px;
+                 display: block;
+             }
+             
+             #album > div {
+                 overflow: auto;
+             }
+
+             #album > div > img {
+                 float: left;
+             }             
+             
+             #album > div > p {
+                 display: block;                 
+             }
+         }
+         
+        </style>
+        
+    </head>    
+    <body>
+
+        <!--
+             #album will be filled with images from imgur during rendering
+             you can control how many images to fetch and the size of the images
+             using a couple of attributes:
+
+             num-images (optional) - specifies how many images to fetch
+             image-size - can be any of the following:
+             
+             's' for small square (90x90)
+             'b' for big square (160x160)
+             
+             (thumbnails preserves the aspect ratio of the original image)
+             't' for small thumbnail (160)
+             'm' for medium thumbnail (320)
+             'l' for large thumbnail (640)
+             'h' for huge thumbnail (1024)
+             
+                defaults to 's'
+           -->
+        
+        <div id="album" num-images=20  image-size='m'></div>
+        
+    </body>
+</html>
