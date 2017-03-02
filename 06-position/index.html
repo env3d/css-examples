@@ -1,0 +1,138 @@
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        <!-- including this script will populate random images into #imgur -->
+        <script src="https://css.operatoroverload.com/06-position/imgur.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        
+        <style>
+         /**
+            first, use developer tools to inspect the items being inserted
+            then, experiment with styling using float, flexbox, etc.
+          */
+         
+         #album {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-around;
+             width: 80%;
+             margin: auto;
+         }
+
+         #album > div > p {
+             display: none;
+         }
+
+         nav {
+             margin: auto;
+         }
+         
+         nav > ul {
+             list-style: none;
+             display: block;
+         }
+
+         nav > ul > li {
+             border-style: solid;
+             display: inline;
+         }
+
+         nav > span {
+             display: none;
+         }
+
+         @media screen and (max-width: 480px) {
+             #album {
+                 width: 400px;
+                 display: block;
+                 margin-left: 0;
+                 clear: both;
+             }
+             
+             #album > div {
+                 overflow: auto;
+             }
+
+             #album > div > img {
+                 float: left;
+             }             
+             
+             #album > div > p {
+                 display: block;                 
+             }
+             
+             nav > span {
+                 float: left;
+                 display: block;
+                 font-size: 2em;
+             }
+
+             nav > ul {
+                 display: block;
+                 position: fixed;
+                 top: -200px;
+                 margin: 0;
+                 padding: 0;
+                 background-color: rgba(127,127,127,0.8);
+             }
+
+             nav > ul > li {
+                 display: block;
+                 font-size: 2em;
+                 border-style: none;
+             }
+
+             nav:hover > ul {
+                 display: block;
+                 color: black;
+                 top: 5px;
+                 transition-duration: 1s;
+             }
+             
+         }
+         
+        </style>
+        
+    </head>    
+    <body>
+
+        <!--
+             #album will be filled with images from imgur during rendering
+             you can control how many images to fetch and the size of the images
+             using a couple of attributes:
+
+             num-images (optional) - specifies how many images to fetch
+             image-size - can be any of the following:
+             
+             's' for small square (90x90)
+             'b' for big square (160x160)
+             
+             (thumbnails preserves the aspect ratio of the original image)
+             't' for small thumbnail (160)
+             'm' for medium thumbnail (320)
+             'l' for large thumbnail (640)
+             'h' for huge thumbnail (1024)
+             
+                defaults to 's'
+           -->
+        <nav>
+            <span><i class="fa fa-bars"></i>
+            </span>
+            
+            <ul>
+                <li>aww</li>
+                <li>funny</li>
+                <li>pics</li>
+                <li>wholesomememes</li>
+            </ul>
+        </nav>
+        
+        <div id="album" num-images=20  image-size='s'></div>
+        
+    </body>
+</html>
