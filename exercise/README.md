@@ -10,6 +10,18 @@ buttons will be displayed for the user to manipulate the simulation.
 Currently, there is no styling.  Your job is to create the various css rules to make the UI 
 behave in the following way:  http://youtu.be/CNJoEgr0IHY?hd=1 
 
+To get started, make a copy of the HTML page on your local machine: 
+https://github.com/env3d/css-examples/blob/master/exercise/index.html.
+
+You will noticed that there is a link to an external CSS file, which is missing. You can choose
+to create this external CSS or create an internal CSS for the purpose of this exercise.
+
+To get FULL marks for this exercise, do not change any of the HTML. If you do
+make changes to the HTML, then maximum points that you can score will be 8/10.
+
+NOTE: This exercise runs best using your own laptop as the simulation runs in 3D mode. 
+The Citirx terminals do not have any 3D hardware and will therefore run very slowly.
+
 Below are the details for each display mode:
 
 ![Desktop](./view-desktop.png?raw=true "Destop")
