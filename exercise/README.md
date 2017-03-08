@@ -12,8 +12,8 @@ behave in the following way:  http://youtu.be/CNJoEgr0IHY?hd=1
 
 Below are the details for each display mode:
 
-![Desktop](./view-desktop.png?raw=true)
+![Desktop](./view-desktop.png?raw=true "Destop")
 
-![Landscape on phone](./view-landscape.png?raw=true)
+![Landscape on phone](./view-landscape.png?raw=true "Landscape on phone")
 
-![Portriat on phone](./view-portriat.png?raw=true)
+![Portrait on phone](./view-portrait.png?raw=true "Portrait on phone")
