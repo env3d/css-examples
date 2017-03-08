@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+        <link rel="stylesheet" href="env3d.css" />
+        
+        <script src="bundle.js"></script>
+        <script src="game.js"></script>        
+        
+        <script type="text/javascript">         
+
+         function playGame() {
+             console.log("playGame");
+             var game = new Game();
+
+             game.setup();
+             
+             var env;
+             if (game.env) {
+                 env = game.env;
+             } else {
+                 env = new env3d.Env();
+             }
+            
+             env.loop = game.loop.bind(game);             
+             env.start();
+         }
+         
+         window.addEventListener('load', function() {
+            playGame();
+         });
+         
+        </script>
+         
+    </head>
+    <body>
+        <div id="env3d"></div>
+        <div id="controller">
+            <div class="dpad">
+                <button env3d-key="KEY_UP">UP</button>
+                <button env3d-key="KEY_LEFT">LEFT</button>
+                <button env3d-key="KEY_RIGHT">RIGHT</button>
+                <button env3d-key="KEY_DOWN">DOWN</button>
+            </div>
+            <button env3d-key="KEY_A">A</button>
+            <button env3d-key="KEY_Z">Z</button>            
+        </div>
+        <div id="instructions">Using arrow keys to change camera angle, A to zoom in, Z to zoom out.</div>
+    </body>
+    
+</html>
