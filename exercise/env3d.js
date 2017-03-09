@@ -46591,6 +46591,7 @@ THREE.SoftwareRenderer.Texture = function() {
 
 	this.fromImage = function( image ) {
 
+            image.crossOrigin = "Anonymous";
 		if ( ! image || image.width <= 0 || image.height <= 0 )
 			return;
 
