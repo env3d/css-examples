@@ -19,13 +19,16 @@ to create this external CSS or create an internal CSS for the purpose of this ex
 To get FULL marks for this exercise, do not change any of the HTML. If you do
 make changes to the HTML, then maximum points that you can score will be 8/10.
 
+(Just for fun, try uploading your html file to a server, then visit it using your
+mobile phone.)
+
 NOTE: This exercise runs best using your own laptop as the simulation runs in 3D mode. 
 The Citirx terminals do not have any 3D hardware and will therefore run very slowly.
 
 Below are the details for each display mode:
 
-![Desktop](./view-desktop.png?raw=true "Destop")
+![Desktop](./view-desktop.png?raw=true)
 
-![Landscape on phone](./view-landscape.png?raw=true "Landscape on phone")
+![Landscape on phone](./view-landscape.png?raw=true)
 
-![Portrait on phone](./view-portrait.png?raw=true "Portrait on phone")
+<img src="./view-portrait.png?raw=true" width="50%" alt="Portrait on phone">
