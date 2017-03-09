@@ -46591,7 +46591,7 @@ THREE.SoftwareRenderer.Texture = function() {
 
 	this.fromImage = function( image ) {
 
-            image.crossOrigin = "Anonymous";
+
 		if ( ! image || image.width <= 0 || image.height <= 0 )
 			return;
 
@@ -46600,7 +46600,7 @@ THREE.SoftwareRenderer.Texture = function() {
 			canvas = document.createElement( 'canvas' );
 
 		}
-
+                image.crossOrigin = '';
 		var size = image.width > image.height ? image.width : image.height;
 		size = THREE.Math.nextPowerOfTwo( size );
 
