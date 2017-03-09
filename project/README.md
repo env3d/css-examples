@@ -130,10 +130,10 @@ sent to the current room.
 ### Exercise
 
 <ol start=3>
-<li>Include the font awesome stylesheet [https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css]
-(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css) in your HTML, then create
-3 buttons to send 3 different icons to the current chat room.  Make sure that the button description matches
-the icon being sent.</li>
+<li>Include the font awesome stylesheet https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+in your HTML, then create 3 buttons to send 3 different icons to the current chat room.
+Make sure that the button description matches the icon being sent.  For more information on font-awesome, please 
+visit http://fontawesome.io/</li>
 </ol>
 
 ##messages
