@@ -46600,7 +46600,7 @@ THREE.SoftwareRenderer.Texture = function() {
 			canvas = document.createElement( 'canvas' );
 
 		}
-                image.crossOrigin = '';
+                image.crossOrigin = 'Anonymous';
 		var size = image.width > image.height ? image.width : image.height;
 		size = THREE.Math.nextPowerOfTwo( size );
 
@@ -47016,7 +47016,7 @@ var Env = function(defaultRoom) {
     this.hud = new Hud(this, 512, 512);
 
     // Allow cross origin loading of images
-    THREE.ImageUtils.crossOrigin = '';
+    THREE.ImageUtils.crossOrigin = 'Anonymous';
     
     // The real scene and camera
     this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 10000 );
