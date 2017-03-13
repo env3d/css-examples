@@ -1,0 +1,95 @@
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        
+        <!-- including this script will populate random images into #imgur -->
+        <script src="imgur.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        
+        <script>
+         $(document).ready(function() {
+             console.log('jquery');
+             $("#album").on('updated', function() {
+                 $("#album div").addClass("mdl-cell mdl-cell--4-col");
+             });
+         });
+        </script>
+
+        <style>
+         #album > div > * {             
+             display: inline;             
+         }
+
+         @media screen and (min-width: 480px) {
+             #album > div > p {
+                 display: none;
+             }
+         }
+        </style>
+        
+    </head>    
+    <body>
+
+        <!--
+             #album will be filled with images from imgur during rendering
+             you can control how many images to fetch and the size of the images
+             using a couple of attributes:
+
+             num-images (optional) - specifies how many images to fetch
+             image-size - can be any of the following:
+             
+             's' for small square (90x90)
+             'b' for big square (160x160)
+             
+             (thumbnails preserves the aspect ratio of the original image)
+             't' for small thumbnail (160)
+             'm' for medium thumbnail (320)
+             'l' for large thumbnail (640)
+             'h' for huge thumbnail (1024)
+             
+             defaults to 's'
+           -->
+
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Imgur Example</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="#">aww</a>
+                        <a class="mdl-navigation__link" href="#">funny</a>
+                        <a class="mdl-navigation__link" href="#">pics</a>
+                        <a class="mdl-navigation__link" href="#">wholesomememes</a>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+                <span class="mdl-layout-title">Imgur Example</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#">aww</a>
+                    <a class="mdl-navigation__link" href="#">funny</a>
+                    <a class="mdl-navigation__link" href="#">pics</a>
+                    <a class="mdl-navigation__link" href="#">wholesomememes</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <!-- content goes here -->
+                <div class="mdl-grid" id="album" num-images=20  image-size='s'>
+                </div>
+            </main>
+        </div> 
+                
+    </body>
+</html>
