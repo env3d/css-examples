@@ -1,0 +1,89 @@
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- including this script will populate random images into #imgur -->
+        <script src="imgur.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>        
+
+        <script>
+         $(document).ready(function() {
+             console.log('jquery');
+             $("#album").on('updated', function() {
+                 $("#album div").addClass("col-md-4 col-sm-6 col-xs-12");
+                 $("img").addClass('thumbnail');
+             });
+         });
+        </script>
+
+        <style>
+         #album > div > * {             
+             display: inline;             
+         }
+
+         @media screen and (min-width: 768px) {
+             #album > div > p {
+                 display: none;
+             }
+         }
+        </style>
+        
+    </head>    
+    <body>
+
+        <!--
+             #album will be filled with images from imgur during rendering
+             you can control how many images to fetch and the size of the images
+             using a couple of attributes:
+
+             num-images (optional) - specifies how many images to fetch
+             image-size - can be any of the following:
+             
+             's' for small square (90x90)
+             'b' for big square (160x160)
+             
+             (thumbnails preserves the aspect ratio of the original image)
+             't' for small thumbnail (160)
+             'm' for medium thumbnail (320)
+             'l' for large thumbnail (640)
+             'h' for huge thumbnail (1024)
+             
+             defaults to 's'
+           -->
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="#">Imagur Example</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">aww</a></li>
+                        <li><a href="#">funny</a></li>
+                        <li><a href="#">pics</a></li>
+                        <li><a href="#">wholesomememes</a></li>
+                    </ul>
+                </div>
+            </div>             
+        </nav>
+
+        <div class="container">
+            <div class="row" id="album" num-images=20  image-size='s'>
+            </div>
+        </div>
+        
+    </body>
+</html>
