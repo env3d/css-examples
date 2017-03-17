@@ -1,3 +1,6 @@
+
+env3d.Env.baseAssetsUrl = "http://css.operatoroverload.com/exercise/";
+
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -182,7 +185,7 @@ var Room = (function () {
         this.width = 50;
         this.depth = 50;
         this.height = 50;
-        this.textureBottom = "http://css.operatoroverload.com/exercise/textures/marble.png";
+        this.textureBottom = "textures/marble.png";
         this.textureWest = null;
         this.textureEast = null;
         this.textureNorth = null;
@@ -197,8 +200,8 @@ var Fox = (function (_super) {
     __extends(Fox, _super);
     function Fox(x, y, z) {
         _super.call(this, x, y, z);
-        this.setTexture("http://css.operatoroverload.com/exercise/models/fox/fox.png");
-        this.setModel("http://css.operatoroverload.com/exercise/models/fox/fox.obj");
+        this.setTexture("models/fox/fox.png");
+        this.setModel("models/fox/fox.obj");
     }
     Fox.prototype.move = function (creatures, dead_creatures) {
         for (var index325 = creatures.iterator(); index325.hasNext();) {
@@ -229,8 +232,8 @@ var Tux = (function (_super) {
     __extends(Tux, _super);
     function Tux(x, y, z) {
         _super.call(this, x, y, z);
-        this.setTexture("http://css.operatoroverload.com/exercise/models/tux/tux.png");
-        this.setModel("http://css.operatoroverload.com/exercise/models/tux/tux.obj");
+        this.setTexture("models/tux/tux.png");
+        this.setModel("models/tux/tux.obj");
     }
     return Tux;
 }(Creature));
