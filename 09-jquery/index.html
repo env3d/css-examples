@@ -1,0 +1,89 @@
+<!-- Examples of popular jQuery techniques -->
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        <!-- including this script will populate random images into #imgur -->
+        <script src="imgur.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+        <script>
+         $(document).ready(function() {             
+
+             // See if you can add additional effects
+             $("#hide").click(function() {
+                 $("nav").hide();
+                 $("main").css("margin-left", 0);
+             });
+
+             $("#show").click(function() {
+                 $("nav").show();
+                 $("main").css("margin-left", "30%");
+             });
+
+             $("#search").keyup(function() {
+                 // Retrieve the search term from the input box
+                 var term = $("#search").val();
+                 // call fetchImgur to update the album div
+                 // Note that we are 'adding' the term at the end of the string
+                 // See https://api.imgur.com/endpoints/gallery for details
+                 fetchImgur('https://api.imgur.com/3/gallery/search/?q='+term);
+                 
+             });
+             
+         });
+        </script>
+        <style>
+         nav {
+             position: fixed;
+             top: 0;
+             left: 0;
+             background-color: rgba(0,0,0,0.5);
+             width: 30%;
+             height: 100%;
+         }
+         nav > ul {
+             list-style: none;
+         }
+         nav > ul > li > a {
+             font-size: 2em;
+             color: white;
+         }
+         main {
+             margin-left: 30%;
+         }
+         #album > div {
+             display: flex;
+             margin-top: 10px;
+         }
+         #album > div > p {
+             margin-left: 10%;
+         }
+        </style>
+        
+    </head>    
+    <body>
+
+        <nav id="menu">
+            <ul>
+                <li><input id="search"></li>
+                <li><a href="#">aww</a></li>
+                <li><a href="#">funny</a></li>
+                <li><a href="#">pics</a></li>
+                <li><a href="#">wholesomememes</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <button id="show">show</button>
+            <button id="hide">hide</button>            
+            <div id="album" num-images=20  image-size='s'>
+                
+            </div>
+        </main>
+    </body>
+</html>
