@@ -12,27 +12,29 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
         <script>
-         $(document).ready(function() {             
-
-             // See if you can add additional effects
+         $(document).ready(function() {
+             
              $("#hide").click(function() {
-                 $("nav").hide();
-                 $("main").css("margin-left", 0);
+                 $("nav").animate({
+                     "margin-left": "-500px"                     
+                 }, 1000);
+                 $("main").animate({
+                     "margin-left": "0px"
+                 }, 1000);
              });
-
+             
              $("#show").click(function() {
-                 $("nav").show();
-                 $("main").css("margin-left", "30%");
+                 $("nav").animate({
+                     "margin-left": "0px"                     
+                 }, 1000);
+                 $("main").animate({
+                     "margin-left": "30%"
+                 }, 1000);
              });
 
              $("#search").keyup(function() {
-                 // Retrieve the search term from the input box
-                 var term = $("#search").val();
-                 // call fetchImgur to update the album div
-                 // Note that we are 'adding' the term at the end of the string
-                 // See https://api.imgur.com/endpoints/gallery for details
-                 fetchImgur('https://api.imgur.com/3/gallery/search/?q='+term);
-                 
+                 var searchTerm = $("#search").val();
+                 fetchImgur('https://api.imgur.com/3/gallery/search?q='+searchTerm);
              });
              
          });
@@ -80,7 +82,7 @@
 
         <main>
             <button id="show">show</button>
-            <button id="hide">hide</button>            
+            <button id="hide">hide</button>
             <div id="album" num-images=20  image-size='s'>
                 
             </div>
