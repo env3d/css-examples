@@ -15,7 +15,7 @@ page.
 ## Exercise
 
 1. Assign IDs to each h1 elements, named them 'rentals', 'cars', and 'furnitures'
-2. In the <nav> section, have each of the link refer to the corresponding page fragment
+2. In the nav section, have each of the link refer to the corresponding page fragment
 3. Test the page to make sure that the links are working, like this: http://youtu.be/znYTnH0rKY0?hd=1 
 4. Use http://css.operatoroverload.com/03-ids/nav/ as a guide, create a stylesheet that resembles the 
 following: http://youtu.be/k79C2sFTkEk?hd=1
