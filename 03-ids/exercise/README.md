@@ -1,6 +1,7 @@
 # HTML id and page fragment exercise
 
-index.html contains data from vancouver's craiglist.  The data was pulled
+[index.html](https://raw.githubusercontent.com/env3d/css-examples/master/03-ids/exercise/index.html)
+contains data from vancouver's craiglist.  The data was pulled
 on October 9, 2017.  The following 3 categories are included:
 
 1. Rentals
