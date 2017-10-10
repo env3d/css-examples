@@ -19,7 +19,7 @@ page.
 4. Use https://css.operatoroverload.com/03-ids/nav/ as a guide, create a stylesheet that resembles the 
 following: http://youtu.be/k79C2sFTkEk?hd=1
 5. Things to note:
-  1. For h1 elements, create a padding-top of 80px so the navigation bar won't overlap with it
-  2. Article elements must have alternating background colors, and have a padding and margin of 10px all around
-  3. Be sure to change the colors for links using pseudo classes
+   1. For h1 elements, create a padding-top of 80px so the navigation bar won't overlap with it
+   2. Article elements must have alternating background colors, and have a padding and margin of 10px all around
+   3. Be sure to change the colors for links using pseudo classes
   
