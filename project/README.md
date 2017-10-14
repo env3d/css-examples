@@ -167,8 +167,8 @@ a number of seconds specified by the _latest-message-duration_ attribute of the 
 The number of messages to keep on screen is determined by the _messages-to-keep_ attribute inside the **#chat** 
 element.
 
-**Note on testing** If you join the _system_ room, automated messages will be sent to this room every few 
-seconds. This will greatly help when you are testing your page.
+**Note on testing** When you join the _lobby_ room (default), automated messages will be sent to this room every minute. 
+This will greatly help when you are testing your page.
 
 ### Exercise
 
