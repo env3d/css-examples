@@ -15,15 +15,6 @@ class Chat {
 	this.timeformat = new timeago();
     }
 
-    sendDefaultData(selector, event) {
-	// If an attribute contains the event, then send it first
-	var attr = document.querySelector(selector).getAttribute(event);
-	if (attr) {
-	    console.log("Emitting event", event, attr);
-	    //this.socket.emit(event, attr);
-	} 
-    }
-
     // utility function to add socket emit behavior to a button
     addButtonBehavior(selector, event, callback) {
 
@@ -56,27 +47,14 @@ class Chat {
 	}
     }
 
-    onConnect(data) {
-	console.log("connected");
-	this.sendDefaultData("#user", "name");
-	this.sendDefaultData("#rooms", "join");
-	setTimeout((function() {
-	    this.sendDefaultData("#input", "send");
-	}).bind(this), 100);
-    }
-
-    onDisconnect(data) {
-	console.log('disconnect');
-	document.querySelector("#current-room").innerHTML = '';
-	document.querySelector("#members").innerHTML = '';
-	document.querySelector("#num").innerHTML = '';
-    }
-
+    // When a message comes in, this method modifies the DOM
+    // display it on screen
     onMessage(data) {
-	console.log("data received", data);
+
 	//navigator.vibrate(500);
 	var container = document.getElementById("messages");
-	if (container) { 
+	if (container) {
+	    console.log("onMessage", data);            
 	    // message is an object containing a user and the message
 	    var node = document.createElement("div");
 
@@ -101,7 +79,8 @@ class Chat {
 	    node.appendChild(time);
 
 	    container.insertBefore(node, container.firstChild);
-	    
+
+            // make sure we only display a limited amount of messages
 	    if (container.children.length > this.messagesToKeep) {
 		container.removeChild(container.lastChild);
 	    }
@@ -111,19 +90,17 @@ class Chat {
 	    console.log("removing class");
 	    node.classList.remove('latest-message');
 	}, this.latestMessageDuration*1000);
+        
     }
 
-    onServer(data) {
-	// server is sending us some administrative messages
-	console.log("Server message", data);
-    }
-
+    // When the membership of the current room changes, this method is fired
     onMembers(data) {
-	console.log("received", data);
+	console.log("onMembers", data);
 	var currentRoom = document.querySelector("#current-room");
 	if (currentRoom) 
 	    currentRoom.innerHTML = data.room;
 
+        // When a join a new room, remove all the messages
 	var rooms = document.querySelector("#rooms");
 	if (rooms && rooms.getAttribute("join") != data.room) {
 	    rooms.setAttribute("join", data.room);
@@ -161,7 +138,8 @@ class Chat {
 	    num.innerHTML = data.members.length;
 	}
     }
-    
+
+    // Utility method for joining a room 
     joinRoom(room) {
 
         if (this.connectionRef) {
@@ -173,40 +151,32 @@ class Chat {
         
         this.room = room;        
         
-        // subscribe to messages in this room
-        firebase.database().ref('rooms/'+this.room+'/messages').on('child_added', (data) => {
-            console.log('message received');
-            this.onMessage(data.val());
-        });
-
-        function members(data) {
-            console.log('members');
-            let memberJson = {room: this.room, members: []};
-            firebase.database().ref('rooms/'+this.room+'/members').once('value',(members) => {
-                members.forEach((member) => {
-                    memberJson.members.push({username: member.val(), connectionId: member.key});
-                });
-            });
-            this.onMembers(memberJson);
-        }
-        
-        firebase.database().ref('rooms/'+this.room+'/members').on('child_added', members.bind(this));
-        firebase.database().ref('rooms/'+this.room+'/members').on('child_changed', members.bind(this));
-        firebase.database().ref('rooms/'+this.room+'/members').on('child_removed', members.bind(this));        
-
         // announce my presence
         this.connectionRef = firebase.database().ref('rooms/'+this.room+'/members').push(false);
         // the key to this annoucement will also act as my connectionId
         this.connectionId = this.connectionRef.key;
+        // set my initial name
+        this.connectionRef.set(this.username);        
         this.connectionRef.onDisconnect().set(null);
 
+        // Listen to membership change
+        firebase.database().ref('rooms/'+this.room+'/members').on('value', (members) => {
+            console.log('membership callback', members.val());
+            let memberJson = {room: this.room, members: []};
+            members.forEach((member) => {
+                memberJson.members.push({username: member.val(), connectionId: member.key});
+            });
+            this.onMembers(memberJson);            
+        });
 
-        setTimeout(()=>{
-            this.connectionRef.set(this.username);
-        },500);
-        
-        //console.log('init members');
-        //members.apply(this,null);
+        // subscribe to messages in this room
+        console.log('fetching the last '+this.messagesToKeep+' messages');
+        firebase.database().ref('rooms/'+this.room+'/messages')
+                .limitToLast(parseInt(this.messagesToKeep))
+                .on('child_added', (data) => {
+                    console.log('messages callback: child_added');
+                    this.onMessage(data.val());
+                });
     }
 
     init() {
@@ -219,13 +189,12 @@ class Chat {
 	this.latestMessageDuration = chatApp.getAttribute("latest-message-duration") || 1;
 	// -------
 
-        // -------
-        
+        // -------        
         this.username = document.querySelector("#user").getAttribute("name") || 'Anon';        
         this.room = document.querySelector("#rooms").getAttribute("join") || 'lobby';
-        this.joinRoom(this.room);
-        
+        this.joinRoom(this.room);        
         // -------
+        
 	var self = this;
 
 	// Update the time every once in a while
@@ -257,9 +226,6 @@ class Chat {
                         time: (new Date()).toUTCString()
                     });
         });
-
-
-
     }
 }
 
