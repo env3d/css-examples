@@ -1,9 +1,18 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBOVlDjozZfnpJiHpW5YKYBNd9q0r3qFqs",
+    authDomain: "watercooler-chat-ae182.firebaseapp.com",
+    databaseURL: "https://watercooler-chat-ae182.firebaseio.com",
+    projectId: "watercooler-chat-ae182",
+    storageBucket: "watercooler-chat-ae182.appspot.com",
+    messagingSenderId: "149598481154"
+};
+firebase.initializeApp(config);
+
 
 class Chat {
     constructor(chatServer) {
-	this.socket = null;
 	this.timeformat = new timeago();
-	this.chatServer = chatServer;
     }
 
     sendDefaultData(selector, event) {
@@ -11,21 +20,22 @@ class Chat {
 	var attr = document.querySelector(selector).getAttribute(event);
 	if (attr) {
 	    console.log("Emitting event", event, attr);
-	    this.socket.emit(event, attr);
+	    //this.socket.emit(event, attr);
 	} 
     }
 
     // utility function to add socket emit behavior to a button
-    addButtonBehavior(selector, event) {
+    addButtonBehavior(selector, event, callback) {
 
 	// Check if we have a button
 	var buttonSelector = selector+" button, "+selector+" ["+event+"]";
+        
 	// get a list of all buttons 
 	var buttons = document.querySelectorAll(buttonSelector);
+        
 	// iterate over all buttons and add behavior
 	// if a button has an attribute matching the event, we emit
 	// the content of that attribute to socket.io
-
 	var input = document.querySelector(selector+" input");
 	if (input) {
 	    input.addEventListener('click', function(e) {
@@ -36,22 +46,14 @@ class Chat {
 	for (var i=0; i<buttons.length; i++) {
 	    var self = this;
 	    var button = buttons.item(i);
-	    button.addEventListener('click', function(){
-		console.log('button clicked',event, this.getAttribute(event));
-		this.getAttribute(event) ? 
-		    self.socket.emit(event, this.getAttribute(event)) :
-		    self.socket.emit(event, input.value);
+	    button.addEventListener('click', function(){                
+                let message = this.getAttribute(event) || input.value;
 		input && (input.value = '');
+		console.log('button clicked', event, message);
+                // execute proper callback
+                callback && callback(message);                
 	    });
 	}
-    }
-
-    connect() {
-	this.socket.connect();
-    }
-
-    disconnect() {
-	this.socket.disconnect();
     }
 
     onConnect(data) {
@@ -77,9 +79,11 @@ class Chat {
 	if (container) { 
 	    // message is an object containing a user and the message
 	    var node = document.createElement("div");
-	    if (data.socketid == this.socket.id) {
+
+	    if (data.connectionId == this.connectionId) {
 		node.classList.add('self');
 	    }
+
 	    node.classList.add('latest-message');	     
 	    
 	    var user = document.createElement("span");
@@ -137,7 +141,7 @@ class Chat {
 		var memberDiv = document.createElement("div");	    
 		memberDiv.innerHTML = member.username;
 		
-		if (member.sid === this.socket.id) {
+		if (member.connectionId === this.connectionId) {
 		    memberDiv.classList.add("self");
 		    member.username == "Anon" || 
 			document.querySelector("#user").setAttribute("name", member.username);
@@ -157,6 +161,53 @@ class Chat {
 	    num.innerHTML = data.members.length;
 	}
     }
+    
+    joinRoom(room) {
+
+        if (this.connectionRef) {
+            this.connectionRef.set(null);
+            document.querySelector("#messages").innerHTML = '';
+            firebase.database().ref('rooms/'+this.room+'/messages').off();
+            firebase.database().ref('rooms/'+this.room+'/members').off();            
+        }
+        
+        this.room = room;        
+        
+        // subscribe to messages in this room
+        firebase.database().ref('rooms/'+this.room+'/messages').on('child_added', (data) => {
+            console.log('message received');
+            this.onMessage(data.val());
+        });
+
+        function members(data) {
+            console.log('members');
+            let memberJson = {room: this.room, members: []};
+            firebase.database().ref('rooms/'+this.room+'/members').once('value',(members) => {
+                members.forEach((member) => {
+                    memberJson.members.push({username: member.val(), connectionId: member.key});
+                });
+            });
+            this.onMembers(memberJson);
+        }
+        
+        firebase.database().ref('rooms/'+this.room+'/members').on('child_added', members.bind(this));
+        firebase.database().ref('rooms/'+this.room+'/members').on('child_changed', members.bind(this));
+        firebase.database().ref('rooms/'+this.room+'/members').on('child_removed', members.bind(this));        
+
+        // announce my presence
+        this.connectionRef = firebase.database().ref('rooms/'+this.room+'/members').push(false);
+        // the key to this annoucement will also act as my connectionId
+        this.connectionId = this.connectionRef.key;
+        this.connectionRef.onDisconnect().set(null);
+
+
+        setTimeout(()=>{
+            this.connectionRef.set(this.username);
+        },500);
+        
+        //console.log('init members');
+        //members.apply(this,null);
+    }
 
     init() {
 	var chatApp = document.querySelector("#chat");
@@ -167,14 +218,15 @@ class Chat {
 	this.messagesToKeep = chatApp.getAttribute("messages-to-keep") || 5;
 	this.latestMessageDuration = chatApp.getAttribute("latest-message-duration") || 1;
 	// -------
-	var self = this;
 
-	self.socket = io.connect(this.chatServer);
-	self.socket.on('connect', this.onConnect.bind(this));
-	self.socket.on('disconnect', this.onDisconnect.bind(this));
-	self.socket.on('server', this.onServer.bind(this));
-	self.socket.on('message', this.onMessage.bind(this));
-	self.socket.on('members', this.onMembers.bind(this));
+        // -------
+        
+        this.username = document.querySelector("#user").getAttribute("name") || 'Anon';        
+        this.room = document.querySelector("#rooms").getAttribute("join") || 'lobby';
+        this.joinRoom(this.room);
+        
+        // -------
+	var self = this;
 
 	// Update the time every once in a while
 	setInterval(function() {
@@ -186,26 +238,33 @@ class Chat {
 	    }
 	}, this.timeagoUpdateInterval*1000);
 
-	// Attach some events to buttons
-	var roomButtons = document.querySelectorAll("#rooms > button");
-	for (var i=0; i<roomButtons.length; i++) {
-	    var button = roomButtons.item(i);
-	    button.addEventListener('click', function() {
-		var roomName = self.innerHTML;
-		console.log('joining room', roomName);		     
-		self.socket.emit('join', roomName);
-	    });
-	};
+	this.addButtonBehavior("#user", "name", (name) => {
+            console.log('changing user name to '+name);
+            this.username = name;
+            this.connectionRef.set(this.username);
+        });
+	this.addButtonBehavior("#rooms", "join", (room) => {
+            console.log('switching to room '+room);
+            this.joinRoom(room);
+        });
+	this.addButtonBehavior("#input", "send", (message) => {
+            console.log('sending message '+message);
+            firebase.database().ref('rooms/'+this.room+"/messages")
+                    .push({
+                        user: this.username,
+                        connectionId: this.connectionId,
+                        message: message,
+                        time: (new Date()).toUTCString()
+                    });
+        });
 
-	this.addButtonBehavior("#user", "name");
-	this.addButtonBehavior("#rooms", "join");
-	this.addButtonBehavior("#input", "send");	     
+
 
     }
 }
 
 
-var CHAT = new Chat("http://operatoroverload.com");
+var CHAT = new Chat();
 window.addEventListener('load', function() {
     CHAT.init();
 });

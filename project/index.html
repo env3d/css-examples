@@ -1,9 +1,6 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
-        <script src="https://env3d.github.io/css-examples/project/js/timeago.min.js"></script>
-        <script src="https://env3d.github.io/css-examples/project/js/chat.js"></script> 
     </head>
     <body>
 
@@ -17,7 +14,7 @@
             </div>
 
 
-            <div id="rooms" join="system">
+            <div id="rooms">
                 <input type="text">
                 <button>Join room</button>
                 <button join="red">Join red room</button>
@@ -41,4 +38,8 @@
             <div id="messages"></div>
         </div>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="js/timeago.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+    <script src="js/chat.js"></script> 
 </html> 

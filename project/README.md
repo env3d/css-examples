@@ -33,7 +33,7 @@ Inside the #chat div, the HTML code must contain the following div's with specif
 at https://github.com/env3d/css-examples/blob/master/project/index.html for a complete example of the
 HTML structure.
 
-##user
+## user
 
 In a chat application, users must identify themselves to the system.  By default,
 each user has the name _Anon_.  To change this default user, simply add a **name** attribute to this div,
@@ -75,11 +75,13 @@ in groups instead of individuals, this could be handy.
     users from changing their name.</li>
 </ol>
 
-##rooms
+## rooms
 
 This div is used to allow users to select which room that want to be a part of.  A user can
 belong to only one room at a time, and all messages are erased when switching rooms.  Rooms are created
-automatically when a user joins it.  When users first connect, they do not belong to any rooms.
+automatically when a user joins it.  When users first connect and no room is specified, the default room
+is _lobby_.
+
 You can set a default room by adding the _join_ attribute to the #rooms div:
 
 ```html
@@ -103,14 +105,14 @@ to you:
 </div>
 ```
 
-###Exercise
+### Exercise
 
 <ol start=2>
 <li>Style the #rooms element above so that when a user joins the above pre-determined rooms, 
 the background color of the #rooms div will be changed to match the name of the current room.</li>
 </ol>
 
-##input
+## input
 
 Now that we can set our user name and room, we need to be able to send messages.  Messages
 can be sent by adding a **#input** div and providing a text input box and a button element.
@@ -136,7 +138,7 @@ Make sure that the button description matches the icon being sent.  For more inf
 visit http://fontawesome.io/</li>
 </ol>
 
-##messages
+## messages
 
 When a user sends a message to a room, all users in that room will receive that message.  The messages will 
 be inserted inside the **#messages** div.  When you first define your HTML, include an empty **#messages** 
@@ -168,7 +170,7 @@ element.
 **Note on testing** If you join the _system_ room, automated messages will be sent to this room every few 
 seconds. This will greatly help when you are testing your page.
 
-###Exercise
+### Exercise
 
 <ol start=4>
 <li>Style the messages so that each of the 3 fields of the message will separated by some space, 
@@ -179,22 +181,22 @@ and put some vertical margin/padding between the messages.</li>
 colors/background color.</li>
 </ol>
 
-##num
+## num
 
 Reports the number of users in the current room.  The class _multiple_ is added when there are more
 than one user in a room.  Use the web inspector to observe how it changes.
 
-###Exercise
+### Exercise
 
 <ol start=8>
 <li>When a room has more than one person, style the #num element with a different background color.</li>
 </ol>
 
-##current-room
+## current-room
 
 Reports the current room a user is in.
 
-##members
+## members
 
 For every user in the current room, a div is added to this element.  For instance, if 
 the current room has 3 users: Mary, John, and Paul, the #members div will look like the 
@@ -211,7 +213,7 @@ following:
 You will noticed that one of the member contains the class _self_.  This indicates that
 the current user of this connection.
 
-###Exercise
+### Exercise
 
 <ol start=9>
 <li>Style the current user in bold.</li>
