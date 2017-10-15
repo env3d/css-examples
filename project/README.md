@@ -22,7 +22,11 @@ is my attempt at a responsive styled version:
 target="_blank"><img src="http://img.youtube.com/vi/0HcS57iR3Zg/0.jpg" 
 alt="completed styled solution" width="240" height="180" style="border-style: solid"/></a>
 
+## Hint
 
+The exercises below are designed to enhance your knowledge of CSS selectors, keep this
+[css selectors reference](https://www.w3schools.com/cssref/css_selectors.asp) handy 
+when working on these exercises.
 
 # App structure
 
@@ -88,7 +92,8 @@ in groups instead of individuals, this could be handy.
 ### Exercise
 <ol start=1>
 <li>Style the #user element so the #user div will disappear after a name is set to prevent
-    users from changing their name.</li>
+    users from changing their name. **HINT:** you will need to write a rule to hide
+    the #user element if the _name_ attribute is present.</li>
 </ol>
 
 ## rooms
