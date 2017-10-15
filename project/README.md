@@ -11,16 +11,16 @@ app "Water Cooler Chat" -- just a casual conversation.
 Your solution to exercises 1 - 9 should look like the following video:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BV5yZaX4Ae4" 
-target="_blank"><img src="http://img.youtube.com/vi/BV5yZaX4Ae4/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+target="_new"><img src="http://img.youtube.com/vi/BV5yZaX4Ae4/0.jpg" 
+alt="exercises 1-9 solution" width="240" height="180" style="border-style: solid" /></a>
 
 After completing exercises 1 - 9, try to style your chat application to
 look like popular IM apps such as Slack, WhatsApp, or Google Hangout.  Here
 is my attempt at a responsive styled version:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=0HcS57iR3Zg" 
-target="_blank"><img src="http://img.youtube.com/vi/0HcS57iR3Zg/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+target="_new"><img src="http://img.youtube.com/vi/0HcS57iR3Zg/0.jpg" 
+alt="completed styled solution" width="240" height="180" style="border-style: solid" /></a>
 
 
 
