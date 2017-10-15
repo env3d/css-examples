@@ -8,6 +8,20 @@ Nothing is kept on the server and once a page is refreshed, what is
 spoken in the chat room cannot be recovered.  That's why we called this
 app "Water Cooler Chat" -- just a casual conversation.
 
+Your solution to exercises 1 - 9 should look like the following video:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=BV5yZaX4Ae4" 
+target="_blank"><img src="http://img.youtube.com/vi/BV5yZaX4Ae4/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+After completing exercises 1 - 9, try to style your chat application to
+look like popular IM apps such as Slack, WhatsApp, or Google Hangout.  Here
+is my attempt at a responsive styled version:
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=0HcS57iR3Zg" 
+target="_blank"><img src="http://img.youtube.com/vi/0HcS57iR3Zg/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
+
+
 # App structure
 
 The chat app UI is described using HTML, and has several parameters
