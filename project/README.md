@@ -8,6 +8,8 @@ Nothing is kept on the server and once a page is refreshed, what is
 spoken in the chat room cannot be recovered.  That's why we called this
 app "Water Cooler Chat" -- just a casual conversation.
 
+NOTE: This app is for learning purposes only!  It's not secure for production purposes.
+
 Your solution to exercises 1 - 9 should look like the following video:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BV5yZaX4Ae4" 
