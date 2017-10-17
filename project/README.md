@@ -10,6 +10,9 @@ app "Water Cooler Chat" -- just a casual conversation.
 
 NOTE: This app is for learning purposes only!  It's not secure for production purposes.
 
+Start by making a local copy of the index file
+at https://github.com/env3d/css-examples/blob/master/project/index.html
+
 Your solution to exercises 1 - 9 should look like the following video:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BV5yZaX4Ae4" 
@@ -51,9 +54,7 @@ class will stay with the element before being removed.
 The system will display the time as "xxx ago" where xxx can be seconds, minutes, or hours.  This
 attribute controls how often this text is updated.
 
-Inside the #chat div, the HTML code must contain the following div's with specific id's.  Look
-at https://github.com/env3d/css-examples/blob/master/project/index.html for a complete example of the
-HTML structure.
+Inside the #chat div, the HTML code must contain the following div's with specific id's.
 
 ## user
 

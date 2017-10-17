@@ -40,3 +40,12 @@ exports.addMessage = functions.https.onRequest( (req, res) => {
 
     res.status(200).send('done');
 });
+
+// Remove system messages
+exports.trimMessage = functions.database.ref('rooms/lobby/messages/{msg}').onWrite( (event) => {
+
+    if (event.data.val().connectionId == 'system') {
+        return event.data.ref.remove();
+    } 
+});
+
