@@ -95,8 +95,10 @@ in groups instead of individuals, this could be handy.
 ### Exercise
 <ol start=1>
 <li>Style the #user element so the #user div will disappear after a name is set to prevent
-    users from changing their name. **HINT:** you will need to write a rule to hide
-    the #user element if the _name_ attribute is present.</li>
+    users from changing their name. <strong>HINTS:</strong> you will need to write a rule to hide
+    the #user element if the <em>name</em> attribute is present.  To hide an element, set the
+    "display" property to "none". Use <a href="https://www.w3schools.com/cssref/css_selectors.asp">
+    https://www.w3schools.com/cssref/css_selectors.asp</a> to find the correct selector.</li>
 </ol>
 
 ## rooms
