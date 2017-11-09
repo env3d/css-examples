@@ -16,85 +16,23 @@
             then, experiment with styling using float, flexbox, etc.
           */
          
-         #album {
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: space-around;
-             width: 80%;
-             margin: auto;
+         nav > ul {
+             margin: 0;
+             padding: 20px;
+             position: fixed;
+             top: 0;
+             left: -1000;
+             background-color: rgba(230,230,230,0.8);
+             width: 50%;
+             height: 100%;
+             transition-duration: 1s;             
          }
 
-         #album > div > p {
-             display: none;
-         }
-
-         nav {
-             margin: auto;
+         nav:hover > ul {
+             left: 0;
+             transition-duration: 1s;
          }
          
-         nav > ul {
-             list-style: none;
-             display: block;
-         }
-
-         nav > ul > li {
-             border-style: solid;
-             display: inline;
-         }
-
-         nav > span {
-             display: none;
-         }
-
-         @media screen and (max-width: 480px) {
-             #album {
-                 width: 400px;
-                 display: block;
-                 margin-left: 0;
-                 clear: both;
-             }
-             
-             #album > div {
-                 overflow: auto;
-             }
-
-             #album > div > img {
-                 float: left;
-             }             
-             
-             #album > div > p {
-                 display: block;                 
-             }
-             
-             nav > span {
-                 float: left;
-                 display: block;
-                 font-size: 2em;
-             }
-
-             nav > ul {
-                 display: block;
-                 position: fixed;
-                 top: -200px;
-                 margin: 0;
-                 padding: 0;
-                 background-color: rgba(127,127,127,0.8);
-             }
-
-             nav > ul > li {
-                 display: block;
-                 font-size: 2em;
-                 border-style: none;
-             }
-
-             nav:hover > ul {
-                 display: block;
-                 color: black;
-                 top: 5px;
-                 transition-duration: 1s;
-             }
-             
-         }
          
         </style>
         
