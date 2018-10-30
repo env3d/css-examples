@@ -1,0 +1,75 @@
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        <!-- including this script will populate random images into #imgur -->
+        <script src="http://css.operatoroverload.com/06-position/imgur.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        
+        <style>
+         /**
+            first, use developer tools to inspect the items being inserted
+            then, experiment with styling using float, flexbox, etc.
+          */
+
+         body {
+             margin: 0;
+             padding: 0;
+         }
+         
+         #album div {
+             display: inline-block;
+             position: relative;             
+         }
+         
+         #album p {
+             display: block;
+             width: 100%;
+             text-align: center;
+             position: absolute;
+             background-color: rgba(100,100,100,0.5);             
+             left: 0;
+             top: 5%;
+             opacity: 0;
+             margin: 0;
+             font-size: 120%;
+         }
+
+         #album div:hover p {
+             opacity: 1;
+             transition-duration: 0.5s;
+         }
+         
+         #album div:hover img {
+             opacity: 0.2;
+             transition-duration: 0.5s;
+         }
+
+         nav {
+             display: none;
+             position: fixed;
+             right: 0px;
+             bottom: 0px;
+             background-color: rgba(100,100,100,0.9);
+         }
+
+        </style>
+        
+    </head>    
+    <body>
+        <nav>
+            <ul>
+                <li>aww</li>
+                <li>funny</li>
+                <li>pics</li>
+                <li>wholesomememes</li>
+            </ul>
+        </nav> 
+        <div id="album" num-images=60  image-size='b'></div>
+        
+    </body>
+</html>

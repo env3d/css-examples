@@ -1,0 +1,16 @@
+header {
+    text-align: center;
+    background-color: yellow;
+    margin:0;    
+}
+
+nav {
+    background-color: pink;
+    margin:0;
+}
+
+main {
+    background-color: gray;
+    margin:0;    
+}
+
