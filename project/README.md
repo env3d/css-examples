@@ -158,10 +158,19 @@ sent to the current room.
 ### Exercise
 
 <ol start=3>
-<li>Include the font awesome stylesheet https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
-in your HTML, then create 3 buttons to send 3 different icons to the current chat room.
-Make sure that the button description matches the icon being sent.  For more information on font-awesome, please 
-visit http://fontawesome.io/</li>
+<li>Include the font awesome in your HTML, then create 3 buttons to send 3 different icons to 
+the current chat room.
+Make sure that the button description matches the icon being sent.  To find out how to use 
+fontawesome, first put the following link to the fontawsome stylesheet in your HTML
+
+```
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+```
+
+Then read <a href='https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use'>
+https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use</a>
+
+</li>
 </ol>
 
 ## messages
